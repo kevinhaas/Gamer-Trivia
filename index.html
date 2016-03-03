@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Video Game Trivia</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet" type="text/css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="wrapper">
+        <div class="container">
+
+            <div class="page-header" id="titleText">
+                <h1 id="gameTitle">¿Video Game Trivia?</h1>
+            </div>
+            
+            
+            <!-- start game button linked to start game function -->
+            <!-- maybe have this button be replaced by the countdown timer?-->
+            <div id="startBtn">
+            <button onclick="myFunction()">Click Here To Start</button>
+            <br>
+            <br>
+            <br>
+            </div>
+            
+            <!-- have multipe pages and full navigation -->
+            <ol class="breadcrumb">
+                <li class="active">Play</a></li>
+                <li><a href="#">Rules</a></li>
+                <li><a href="#">High Scores</a></li>
+                <li><a href="#">Credits</a></li>
+            </ol>
+
+            <div class="panel panel-default">
+                  <div class="panel-heading">
+                        <h3 class="panel-title">Question Goes here?</h3>
+                  </div>
+                  <!-- have answers fade in, and when an answer is chosen the rest fade out to almost invisible -->
+                  <div class="panel-body" id="answerField">
+                       A:)<br><hr>
+                       B:)<br><hr>
+                       C:)<br><hr>
+                       D:)
+                  </div>
+            </div>
+            
+            <div class="panel panel-default">
+                  <div class="panel-heading">
+                        <h3 class="panel-title">output</h3>
+                  </div>
+                  <div class="panel-body" id="textOutput">
+                      blah blah blah blah
+                  </div>
+            </div>
+            
+            <button onclick="myFunction()">Click Here For Something</button>
+
+         <p class="navbar-text pull-right">
+            <a href="#" class="navbar-link">Placeholder Link</a>
+         </p>
+
+        </div>
+    </div>
+    
+ 
+    <script src="https://code.jquery.com/jquery-2.2.0.js" type="text/javascript"></script>
+    <script src="assets/javascript/app.js" type="text/javascript"></script>
+    
+</body>
+</html>

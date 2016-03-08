@@ -77,13 +77,23 @@ body {
     font-size: 49px;
 }
 
-#startBtn {
+#startBtnDiv {
     text-align: center;
+    font-size: 32px;
+}
+
+#questionBox {
+    font-size: 24px;
 }
 
 #answerField {
     font-size: 24px;
     background-color: #cbc9cf;
+}
+
+.answerBox {
+    cursor: pointer;
+    color: #7451aa;
 }
 
 #textOutput {

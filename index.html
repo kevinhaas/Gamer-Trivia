@@ -16,17 +16,16 @@
             <div class="page-header" id="titleText">
                 <h1 id="gameTitle">¿Video Game Trivia?</h1>
             </div>
-            
+     
             
             <!-- start game button linked to start game function -->
             <!-- maybe have this button be replaced by the countdown timer?-->
-            <div id="startBtn">
-            <button onclick="myFunction()">Click Here To Start</button>
-            <br>
-            <br>
-            <br>
+            <div id="startBtnDiv">
+            <button type="button" class="btn btn-default" id="startBtn"></button>
+            <div id="topMsg">&nbsp</div>
+            <div id="clock">&nbsp</div>
             </div>
-            
+            <br>
             <!-- have multipe pages and full navigation -->
             <ol class="breadcrumb">
                 <li class="active">Play</a></li>
@@ -37,14 +36,14 @@
 
             <div class="panel panel-default">
                   <div class="panel-heading">
-                        <h3 class="panel-title">Question Goes here?</h3>
+                        <h3 class="panel-title" id="questionBox"></h3>
                   </div>
                   <!-- have answers fade in, and when an answer is chosen the rest fade out to almost invisible -->
                   <div class="panel-body" id="answerField">
-                       A:)<br><hr>
-                       B:)<br><hr>
-                       C:)<br><hr>
-                       D:)
+                      <a tabindex="0"><div id="answerBoxA" class="answerBox"></div></a>
+                      <a tabindex="0"><div id="answerBoxB" class="answerBox"><hr></div></a>
+                      <a tabindex="0"><div id="answerBoxC" class="answerBox"><hr></div></a>
+                      <a tabindex="0"><div id="answerBoxD" class="answerBox"><hr></div></a>
                   </div>
             </div>
             

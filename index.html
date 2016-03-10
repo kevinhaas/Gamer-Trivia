@@ -10,6 +10,10 @@
 </head>
 
 <body>
+   
+        <span class="badge" id="winBadge"></span>
+        <span class="badge" id="loseBadge"></span>
+    
     <div id="wrapper">
         <div class="container">
 
@@ -23,7 +27,7 @@
             <div id="startBtnDiv">
             <button type="button" class="btn btn-default" id="startBtn"></button>
             <div id="topMsg">&nbsp</div>
-            <div id="clock">&nbsp</div>
+            <div id="clock"></div>
             </div>
             <br>
             <!-- have multipe pages and full navigation -->
@@ -34,7 +38,7 @@
                 <li><a href="#">Credits</a></li>
             </ol>
 
-            <div class="panel panel-default">
+            <div class="panel panel-default" id="gameArea">
                   <div class="panel-heading">
                         <h3 class="panel-title" id="questionBox"></h3>
                   </div>
@@ -49,10 +53,9 @@
             
             <div class="panel panel-default">
                   <div class="panel-heading">
-                        <h3 class="panel-title">output</h3>
+                        <h3 class="panel-title" id="outputTitle"></h3>
                   </div>
                   <div class="panel-body" id="textOutput">
-                      blah blah blah blah
                   </div>
             </div>
             

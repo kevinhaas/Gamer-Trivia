@@ -83,7 +83,9 @@ body {
 }
 
 #questionBox {
-    font-size: 24px;
+    font-size: 30px;
+    font-weight: bold;
+    color: #7451aa;
 }
 
 #answerField {
@@ -93,9 +95,19 @@ body {
 
 .answerBox {
     cursor: pointer;
-    color: #7451aa;
+    color: #000000;
 }
 
 #textOutput {
+    background-color: #cbc9cf;
+}
+
+.badge {
+    /*display: none;*/
+    position: absolute;
+    bottom: 50%;
+    left: 450px;
+    font-size: 100px;
+    color: #7451aa;
     background-color: #cbc9cf;
 }

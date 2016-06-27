@@ -34,11 +34,11 @@ var questions = {
 $(document).ready(function introScreen() {
     $("#topMsg, #outputTitle, #textOutput").hide();
     $("#startBtn").html("Click Here To Start");
-    $("#answerBoxA").append("A:) "); 
+    $("#answerBoxA").append("A:) ");
     $("#answerBoxB").append("B:) ");
     $("#answerBoxC").append("C:) ");
     $("#answerBoxD").append("D:) ");
-        
+
 });
 
 
@@ -52,18 +52,18 @@ function QuestionAnswer(question, answerA, answerB, answerC, answerD, correctAns
     this.correctAnswer = correctAnswer;
 
     $("body").off('click').one("click", "#startBtn", function startGame() {
-    $("#startBtn").fadeOut(1000);
-    $("#topMsg").delay(1000).fadeIn(2000).html("Game Starts In ");
-    timer = 5;
-    setTimeout(gameLoop, 5000);
+        $("#startBtn").fadeOut(1000);
+        $("#topMsg").delay(1000).fadeIn(2000).html("Game Starts In ");
+        timer = 5;
+        setTimeout(gameLoop, 5000);
     });
-    
-//how can i randomize this? 
+
+//how can i randomize this?
     this.renderQuestion = function() {
         currentAnswer.push(this.correctAnswer);
         $("#startBtn, #questionBox, #answerBoxA, #answerBoxB, #answerBoxC, #answerBoxD").hide().empty();
         $("#questionBox").fadeIn(3000).html(this.question + "<hr");
-        $("#answerBoxA").fadeIn(3000).append(this.answerA + "<hr>"); 
+        $("#answerBoxA").fadeIn(3000).append(this.answerA + "<hr>");
         $("#answerBoxB").fadeIn(3000).append(this.answerB + "<hr>");
         $("#answerBoxC").fadeIn(3000).append(this.answerC + "<hr>");
         $("#answerBoxD").fadeIn(3000).append(this.answerD);
@@ -72,52 +72,52 @@ function QuestionAnswer(question, answerA, answerB, answerC, answerD, correctAns
 
 function gameLoop() {
     timer = 10;
-    questionNumber++
+    questionNumber++;
     $("#outputTitle").fadeIn(3000).html("Stats");
     $("#textOutput").fadeIn(3000).html("<div>" + "Correct: " + correct + "<br>" + "<div>" + "Incorrect: " + incorrect);
     $("#textOutput").html("<div>" + "Correct: " + correct + "<br>" + "<div>" + "Incorrect: " + incorrect);
-    
-    if (correct == 8) {
+
+    if (correct == 7) {
         $("#wrapper").hide();
         $("#winBadge").fadeIn(3000).html("u r teh 1337ness!1!");
     }
-    
-    if ( incorrect == 2) {
+
+    if ( incorrect == 3) {
         $("#wrapper").hide();
         $("#loseBadge").fadeIn(3000).html("u r teh sux0r!1!!!12!");
     }
-    
- 
+
+
     if (questionNumber == 1) {
         $("#startBtn").fadeOut(500);
         $("#topMsg, #clock").hide();
         $("#topMsg").fadeIn(3000).html("Time Remaining ");
         $("#clock").fadeIn(3000);
         questions.question1.renderQuestion();
-        
-            $(document.body).one("click", "#answerBoxA, #answerBoxB, #answerBoxD", function() { 
-                $("#topMsg").html("You're Wrong!");     
-                $("#clock").hide();
-                $("#startBtn").html("Next Question").fadeIn(1000);
-                clearInterval(countDown1);
-                incorrect++
-            
-                    $("body").off('click').one("click", "#startBtn", function() {
-                        gameLoop();
-                    });
+
+        $(document.body).one("click", "#answerBoxA, #answerBoxB, #answerBoxD", function() {
+            $("#topMsg").html("You're Wrong!");
+            $("#clock").hide();
+            $("#startBtn").html("Next Question").fadeIn(1000);
+            clearInterval(countDown1);
+            incorrect++;
+
+            $("body").off('click').one("click", "#startBtn", function() {
+                gameLoop();
             });
-            
-            $(document.body).one("click", "#answerBoxC", function() { 
-                $("#topMsg").html("You're Right!");
-                $("#clock").hide();
-                $("#startBtn").html("Next Question").fadeIn(1000);
-                clearInterval(countDown1);
-                correct++
-                
-                    $("body").off('click').one("click", "#startBtn", function() {
-                        gameLoop();
-                    });
-            }); 
+        });
+
+        $(document.body).one("click", "#answerBoxC", function() {
+            $("#topMsg").html("You're Right!");
+            $("#clock").hide();
+            $("#startBtn").html("Next Question").fadeIn(1000);
+            clearInterval(countDown1);
+            correct++;
+
+            $("body").off('click').one("click", "#startBtn", function() {
+                gameLoop();
+            });
+        });
     }
 
     if (questionNumber == 2) {
@@ -127,35 +127,35 @@ function gameLoop() {
         $("#topMsg").fadeIn(3000).html("Time Remaining ");
         $("#clock").fadeIn(3000);
         questions.question2.renderQuestion();
-        
-            $(document.body).one("click", "#answerBoxA, #answerBoxB, #answerBoxC", function() { 
-                timer +=
+
+        $(document.body).one("click", "#answerBoxA, #answerBoxB, #answerBoxC", function() {
+            timer +=
                 $("#topMsg").html("You're Wrong!");
-                $("#clock").hide();
-                $("#startBtn").html("Next Question").fadeIn(1000);
-                clearInterval(countDown1);
-                incorrect++
-            
-                    $("body").off('click').one("click", "#startBtn", function() {
-                        gameLoop();
-                    });
+            $("#clock").hide();
+            $("#startBtn").html("Next Question").fadeIn(1000);
+            clearInterval(countDown1);
+            incorrect++;
+
+            $("body").off('click').one("click", "#startBtn", function() {
+                gameLoop();
             });
-            
-            $(document.body).one("click", "#answerBoxD", function() {
-                timer +=
+        });
+
+        $(document.body).one("click", "#answerBoxD", function() {
+            timer +=
                 $("#topMsg").html("You're Right!");
-                $("#clock").hide();
-                $("#startBtn").html("Next Question").fadeIn(1000);
-                clearInterval(countDown1);
-                correct++
-                
-                    $("body").off('click').one("click", "#startBtn", function() {
-                        gameLoop();
-                    });
+            $("#clock").hide();
+            $("#startBtn").html("Next Question").fadeIn(1000);
+            clearInterval(countDown1);
+            correct++;
+
+            $("body").off('click').one("click", "#startBtn", function() {
+                gameLoop();
             });
-                
-    }  
-    
+        });
+
+    }
+
     if (questionNumber == 3) {
         clearInterval(countDown1);
         $("#startBtn").fadeOut(500);
@@ -163,35 +163,35 @@ function gameLoop() {
         $("#topMsg").fadeIn(3000).html("Time Remaining ");
         $("#clock").fadeIn(3000);
         questions.question3.renderQuestion();
-        
-            $(document.body).one("click", "#answerBoxA, #answerBoxC, #answerBoxD", function() { 
-                timer +=      
-                $("#topMsg").html("You're Wrong!");     
-                $("#clock").hide();
-                $("#startBtn").html("Next Question").fadeIn(1000);
-                clearInterval(countDown1);
-                incorrect++
-            
-                    $("body").off('click').one("click", "#startBtn", function() {
-                        gameLoop();
-                    });
+
+        $(document.body).one("click", "#answerBoxA, #answerBoxC, #answerBoxD", function() {
+            timer +=
+                $("#topMsg").html("You're Wrong!");
+            $("#clock").hide();
+            $("#startBtn").html("Next Question").fadeIn(1000);
+            clearInterval(countDown1);
+            incorrect++;
+
+            $("body").off('click').one("click", "#startBtn", function() {
+                gameLoop();
             });
-            
-            $(document.body).one("click", "#answerBoxB", function() {
-                timer +=
+        });
+
+        $(document.body).one("click", "#answerBoxB", function() {
+            timer +=
                 $("#topMsg").html("You're Right!");
-                $("#clock").hide();
-                $("#startBtn").html("Next Question").fadeIn(1000);
-                clearInterval(countDown1);
-                correct++
-                
-                    $("body").off('click').one("click", "#startBtn", function() {
-                        gameLoop();
-                    });
+            $("#clock").hide();
+            $("#startBtn").html("Next Question").fadeIn(1000);
+            clearInterval(countDown1);
+            correct++;
+
+            $("body").off('click').one("click", "#startBtn", function() {
+                gameLoop();
             });
-                
+        });
+
     }
-    
+
     if (questionNumber == 4) {
         clearInterval(countDown1);
         $("#startBtn").fadeOut(500);
@@ -199,35 +199,35 @@ function gameLoop() {
         $("#topMsg").fadeIn(3000).html("Time Remaining ");
         $("#clock").fadeIn(3000);
         questions.question4.renderQuestion();
-        
-            $(document.body).one("click", "#answerBoxB, #answerBoxC, #answerBoxD", function() {
-                timer +=
-                $("#topMsg").html("You're Wrong!");     
-                $("#clock").hide();
-                $("#startBtn").html("Next Question").fadeIn(1000);
-                clearInterval(countDown1);
-                incorrect++
-            
-                    $("body").off('click').one("click", "#startBtn", function() {
-                        gameLoop();
-                    });
+
+        $(document.body).one("click", "#answerBoxB, #answerBoxC, #answerBoxD", function() {
+            timer +=
+                $("#topMsg").html("You're Wrong!");
+            $("#clock").hide();
+            $("#startBtn").html("Next Question").fadeIn(1000);
+            clearInterval(countDown1);
+            incorrect++;
+
+            $("body").off('click').one("click", "#startBtn", function() {
+                gameLoop();
             });
-            
-            $(document.body).one("click", "#answerBoxA", function() {
-                timer +=
+        });
+
+        $(document.body).one("click", "#answerBoxA", function() {
+            timer +=
                 $("#topMsg").html("You're Right!");
-                $("#clock").hide();
-                $("#startBtn").html("Next Question").fadeIn(1000);
-                clearInterval(countDown1);
-                correct++
-                
-                    $("body").off('click').one("click", "#startBtn", function() {
-                        gameLoop();
-                    });
+            $("#clock").hide();
+            $("#startBtn").html("Next Question").fadeIn(1000);
+            clearInterval(countDown1);
+            correct++;
+
+            $("body").off('click').one("click", "#startBtn", function() {
+                gameLoop();
             });
-                
+        });
+
     }
-    
+
     if (questionNumber == 5) {
         clearInterval(countDown1);
         $("#startBtn").fadeOut(500);
@@ -235,35 +235,35 @@ function gameLoop() {
         $("#topMsg").fadeIn(3000).html("Time Remaining ");
         $("#clock").fadeIn(3000);
         questions.question5.renderQuestion();
-        
-            $(document.body).one("click", "#answerBoxA, #answerBoxC, #answerBoxD", function() {
-                timer +=
-                $("#topMsg").html("You're Wrong!");     
-                $("#clock").hide();
-                $("#startBtn").html("Next Question").fadeIn(1000);
-                clearInterval(countDown1);
-                incorrect++
-            
-                    $("body").off('click').one("click", "#startBtn", function() {
-                        gameLoop();
-                    });
+
+        $(document.body).one("click", "#answerBoxA, #answerBoxC, #answerBoxD", function() {
+            timer +=
+                $("#topMsg").html("You're Wrong!");
+            $("#clock").hide();
+            $("#startBtn").html("Next Question").fadeIn(1000);
+            clearInterval(countDown1);
+            incorrect++;
+
+            $("body").off('click').one("click", "#startBtn", function() {
+                gameLoop();
             });
-            
-            $(document.body).one("click", "#answerBoxB", function() {
-                timer +=
+        });
+
+        $(document.body).one("click", "#answerBoxB", function() {
+            timer +=
                 $("#topMsg").html("You're Right!");
-                $("#clock").hide();
-                $("#startBtn").html("Next Question").fadeIn(1000);
-                clearInterval(countDown1);
-                correct++
-                
-                    $("body").off('click').one("click", "#startBtn", function() {
-                        gameLoop();
-                    });
+            $("#clock").hide();
+            $("#startBtn").html("Next Question").fadeIn(1000);
+            clearInterval(countDown1);
+            correct++;
+
+            $("body").off('click').one("click", "#startBtn", function() {
+                gameLoop();
             });
-                
+        });
+
     }
-    
+
     if (questionNumber == 6) {
         clearInterval(countDown1);
         $("#startBtn").fadeOut(500);
@@ -271,33 +271,33 @@ function gameLoop() {
         $("#topMsg").fadeIn(3000).html("Time Remaining ");
         $("#clock").fadeIn(3000);
         questions.question6.renderQuestion();
-        
-            $(document.body).one("click", "#answerBoxA, #answerBoxB, #answerBoxC", function() {
-                timer +=
-                $("#topMsg").html("You're Wrong!");     
-                $("#clock").hide();
-                $("#startBtn").html("Next Question").fadeIn(1000);
-                clearInterval(countDown1);
-                incorrect++
-            
-                    $("body").off('click').one("click", "#startBtn", function() {
-                        gameLoop();
-                    });
+
+        $(document.body).one("click", "#answerBoxA, #answerBoxB, #answerBoxC", function() {
+            timer +=
+                $("#topMsg").html("You're Wrong!");
+            $("#clock").hide();
+            $("#startBtn").html("Next Question").fadeIn(1000);
+            clearInterval(countDown1);
+            incorrect++;
+
+            $("body").off('click').one("click", "#startBtn", function() {
+                gameLoop();
             });
-            
-            $(document.body).one("click", "#answerBoxD", function() {
-                timer +=
+        });
+
+        $(document.body).one("click", "#answerBoxD", function() {
+            timer +=
                 $("#topMsg").html("You're Right!");
-                $("#clock").hide();
-                $("#startBtn").html("Next Question").fadeIn(1000);
-                clearInterval(countDown1);
-                correct++
-                
-                    $("body").off('click').one("click", "#startBtn", function() {
-                        gameLoop();
-                    });
+            $("#clock").hide();
+            $("#startBtn").html("Next Question").fadeIn(1000);
+            clearInterval(countDown1);
+            correct++;
+
+            $("body").off('click').one("click", "#startBtn", function() {
+                gameLoop();
             });
-                
+        });
+
     }
 
     if (questionNumber == 7) {
@@ -307,34 +307,34 @@ function gameLoop() {
         $("#topMsg").fadeIn(3000).html("Time Remaining ");
         $("#clock").fadeIn(3000);
         questions.question7.renderQuestion();
-        
-            $(document.body).one("click", "#answerBoxB, #answerBoxC, #answerBoxD", function() {
-                timer +=
-                $("#topMsg").html("You're Wrong!");     
-                $("#clock").hide();
-                $("#startBtn").html("Next Question").fadeIn(1000);
-                clearInterval(countDown1);
-                incorrect++
-            
-                    $("body").off('click').one("click", "#startBtn", function() {
-                        gameLoop();
-                    });
+
+        $(document.body).one("click", "#answerBoxB, #answerBoxC, #answerBoxD", function() {
+            timer +=
+                $("#topMsg").html("You're Wrong!");
+            $("#clock").hide();
+            $("#startBtn").html("Next Question").fadeIn(1000);
+            clearInterval(countDown1);
+            incorrect++;
+
+            $("body").off('click').one("click", "#startBtn", function() {
+                gameLoop();
             });
-            
-            $(document.body).one("click", "#answerBoxA", function() {
-                timer +=
+        });
+
+        $(document.body).one("click", "#answerBoxA", function() {
+            timer +=
                 $("#topMsg").html("You're Right!");
-                $("#clock").hide();
-                $("#startBtn").html("Next Question").fadeIn(1000);
-                clearInterval(countDown1);
-                correct++
-                
-                    $("body").off('click').one("click", "#startBtn", function() {
-                        gameLoop();
-                    });
+            $("#clock").hide();
+            $("#startBtn").html("Next Question").fadeIn(1000);
+            clearInterval(countDown1);
+            correct++;
+
+            $("body").off('click').one("click", "#startBtn", function() {
+                gameLoop();
             });
+        });
     }
-    
+
     if (questionNumber == 8) {
         clearInterval(countDown1);
         $("#startBtn").fadeOut(500);
@@ -342,35 +342,35 @@ function gameLoop() {
         $("#topMsg").fadeIn(3000).html("Time Remaining ");
         $("#clock").fadeIn(3000);
         questions.question8.renderQuestion();
-        
-            $(document.body).one("click", "#answerBoxA, #answerBoxB, #answerBoxD", function() {
-                timer +=
-                $("#topMsg").html("You're Wrong!");     
-                $("#clock").hide();
-                $("#startBtn").html("Next Question").fadeIn(1000);
-                clearInterval(countDown1);
-                incorrect++
-            
-                $("body").off('click').one("click", "#startBtn", function() {
-                    gameLoop();
-                });
+
+        $(document.body).one("click", "#answerBoxA, #answerBoxB, #answerBoxD", function() {
+            timer +=
+                $("#topMsg").html("You're Wrong!");
+            $("#clock").hide();
+            $("#startBtn").html("Next Question").fadeIn(1000);
+            clearInterval(countDown1);
+            incorrect++;
+
+            $("body").off('click').one("click", "#startBtn", function() {
+                gameLoop();
             });
-            
-            $(document.body).one("click", "#answerBoxC", function() {
-                timer +=
+        });
+
+        $(document.body).one("click", "#answerBoxC", function() {
+            timer +=
                 $("#topMsg").html("You're Right!");
-                $("#clock").hide();
-                $("#startBtn").html("Next Question").fadeIn(1000);
-                clearInterval(countDown1);
-                correct++
-                
-                    $("body").off('click').one("click", "#startBtn", function() {
-                        gameLoop();
-                    });
+            $("#clock").hide();
+            $("#startBtn").html("Next Question").fadeIn(1000);
+            clearInterval(countDown1);
+            correct++;
+
+            $("body").off('click').one("click", "#startBtn", function() {
+                gameLoop();
             });
-                
+        });
+
     }
-    
+
     if (questionNumber == 9) {
         clearInterval(countDown1);
         $("#startBtn").fadeOut(500);
@@ -378,35 +378,35 @@ function gameLoop() {
         $("#topMsg").fadeIn(3000).html("Time Remaining ");
         $("#clock").fadeIn(3000);
         questions.question9.renderQuestion();
-        
-            $(document.body).one("click", "#answerBoxB, #answerBoxC, #answerBoxD", function() {
-                timer +=
-                $("#topMsg").html("You're Wrong!");     
-                $("#clock").hide();
-                $("#startBtn").html("Next Question").fadeIn(1000);
-                clearInterval(countDown1);
-                incorrect++
-            
-                $("body").off('click').one("click", "#startBtn", function() {
-                    gameLoop();
-                });
+
+        $(document.body).one("click", "#answerBoxB, #answerBoxC, #answerBoxD", function() {
+            timer +=
+                $("#topMsg").html("You're Wrong!");
+            $("#clock").hide();
+            $("#startBtn").html("Next Question").fadeIn(1000);
+            clearInterval(countDown1);
+            incorrect++;
+
+            $("body").off('click').one("click", "#startBtn", function() {
+                gameLoop();
             });
-            
-            $(document.body).one("click", "#answerBoxA", function() {
-                timer +=
+        });
+
+        $(document.body).one("click", "#answerBoxA", function() {
+            timer +=
                 $("#topMsg").html("You're Right!");
-                $("#clock").hide();
-                $("#startBtn").html("Next Question").fadeIn(1000);
-                clearInterval(countDown1);
-                correct++
-                
-                    $("body").off('click').one("click", "#startBtn", function() {
-                        gameLoop();
-                    });
+            $("#clock").hide();
+            $("#startBtn").html("Next Question").fadeIn(1000);
+            clearInterval(countDown1);
+            correct++;
+
+            $("body").off('click').one("click", "#startBtn", function() {
+                gameLoop();
             });
-                
+        });
+
     }
-    
+
     if (questionNumber == 10) {
         clearInterval(countDown1);
         $("#startBtn").fadeOut(500);
@@ -414,40 +414,40 @@ function gameLoop() {
         $("#topMsg").fadeIn(3000).html("Time Remaining ");
         $("#clock").fadeIn(3000);
         questions.question10.renderQuestion();
-        
-            $(document.body).one("click", "#answerBoxA, #answerBoxC, #answerBoxD", function() {
-                timer += 
-                $("#topMsg").html("You're Wrong!");     
-                $("#clock").hide();
-                $("#startBtn").html("Next Question").fadeIn(1000);
-                clearInterval(countDown1);
-                incorrect++
-            
-                    $("body").off('click').one("click", "#startBtn", function() {
-                        gameLoop();
-                    });
+
+        $(document.body).one("click", "#answerBoxA, #answerBoxC, #answerBoxD", function() {
+            timer +=
+                $("#topMsg").html("You're Wrong!");
+            $("#clock").hide();
+            $("#startBtn").html("Next Question").fadeIn(1000);
+            clearInterval(countDown1);
+            incorrect++;
+
+            $("body").off('click').one("click", "#startBtn", function() {
+                gameLoop();
             });
-            
-            $(document.body).one("click", "#answerBoxB", function() {
-                timer += 
+        });
+
+        $(document.body).one("click", "#answerBoxB", function() {
+            timer +=
                 $("#topMsg").html("You're Right!");
-                $("#clock").hide();
-                $("#startBtn").html("Next Question").fadeIn(1000);
-                clearInterval(countDown1);
-                correct++
-                
-                    $("body").off('click').one("click", "#startBtn", function() {
-                        gameLoop();
-                    });
+            $("#clock").hide();
+            $("#startBtn").html("Next Question").fadeIn(1000);
+            clearInterval(countDown1);
+            correct++;
+
+            $("body").off('click').one("click", "#startBtn", function() {
+                gameLoop();
             });
-                
+        });
+
     }
 
 }
 
-// set fadeout so the coutndown pulses
+// set fadeout so the countdown pulses
 function countDownClock() {
-    
+
     for (var i = 0; i < 1; i++) {
         $("#clock").show().html(timer--);
 
@@ -463,13 +463,3 @@ function countDownClock() {
         }
     }
 }
-
-
-    
-    
-    
-
-
-
-
-

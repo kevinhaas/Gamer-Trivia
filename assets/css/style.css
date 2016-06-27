@@ -71,6 +71,21 @@ body {
     background-image: url();
 }
 
+a:link {
+    color: #7451aa;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #7451aa;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #7451aa !important;
+    text-decoration: none
+}
+
 #titleText {
     color: #7451aa;
     text-align: center;

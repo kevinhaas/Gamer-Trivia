@@ -1,6 +1,6 @@
 # Gamer-Trivia
 
-### Test your gaming knowledge and beat the JS timers!
+### Test your gaming knowledge and beat the timer!
 
 #### Features:
 * jQuery is used to manipulate the DOM and display/hide data
